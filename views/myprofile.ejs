@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <title>My Profile</title>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +13,11 @@
         <% if(locals.profile_name) { %>
           <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
           <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
-          <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+          <a href="/mybets" method="GET" class="w3-button w3-bar-item">My Bets</a>
           <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+          <a href="/logout" class="w3-button w3-bar-item">Logout</a>
         <% } else{%>
             <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
-            <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
             <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
             <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
             <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
@@ -28,6 +29,7 @@
         <h1>My Profile</h1>
         <p>Name: <%= profile_name%></p>
         <p>Email: <%= user_email%></p>
+        <p>My Points: <%= user_points%></p>
     <% } else{ %>
         <p>You must be <a href="/login" method="GET">logged in!</a></p>
     <% } %>

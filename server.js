@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 const cookies = require('cookie-parser');
 const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
+const { redirect } = require('express/lib/response');
 dotenv.config();
 const dbUrl = process.env.MONGOLAB_URI;
 const port = 3000;
@@ -26,6 +27,12 @@ app.get('/', (req, res) => {
   return res.render("index.ejs", { profile_name, user_email });
 });
 
+app.get('/mybets', (req, res) => {
+  let profile_name = req.cookies.fullname;
+  console.log(req.cookie.userBets);
+  res.render('mybets.ejs', { profile_name : profile_name})
+});
+
 app.get('/games', (req, res) => {
   let profile_name = req.cookies.fullname;
   res.render('games.ejs', { profile_name : profile_name,});
@@ -44,15 +51,19 @@ app.get('/login', (req, res) => {
 app.get('/myprofile', (req, res) => {
   let profile_name = req.cookies.fullname;
   let user_email = req.cookies.email;
-  res.render('myprofile.ejs', { profile_name : profile_name, user_email : user_email});
+  let user_points = req.cookies.points;
+  res.render('myprofile.ejs', { profile_name : profile_name, user_email : user_email, user_points : user_points});
 });
 
 app.get('/logout', (req, res) => {
   // clear cookies
   res.clearCookie("email");
   res.clearCookie("fullname");
+  res.clearCookie("userPoints");
+  res.clearCookie("userBets");
   return res.redirect('/')
 })
+
 
 app.post('/login-confirm', (req, res) => {
   MongoClient.connect(dbUrl, { useUnifiedTopology: true }, (err, client) => {
@@ -69,6 +80,7 @@ app.post('/login-confirm', (req, res) => {
          console.log('emails and passowrds match!');
          res.cookie("email", userLogin["email"]);
          res.cookie("fullname", myDoc.fullname);
+         res.cookie("points", myDoc.points);
          res.redirect('myprofile');
        } else {
          console.log('wrong password');
@@ -86,6 +98,7 @@ app.post('/signup-confirm', (req, res) => {
     collection
       .insertMany([
         { points: 100,
+          currentBets: [],
           email: req.body.email,
           password: req.body.password,
           fullname: req.body.fullname
@@ -99,6 +112,27 @@ app.post('/signup-confirm', (req, res) => {
       });
   });
 });
+
+/*
+app.post('/bet', (req, res) => {
+  MongoClient.connect(dbUrl, { useUnifiedTopology: true }, (err, client) => {
+    if (err) return console.error(err);
+    const db = client.db('node-demo');
+    const collection = db.collection('users');
+    let profile_name = req.cookies.fullname;
+    collection.findOne({fullname: profile_name}, {$addToSet: {currentBets: req.body}});
+    collection.find().forEach(
+    function(myDoc) { 
+      let userBets = {
+        bet: req.body.bet,
+      };
+      res.cookie("userBest", myDoc.bet);
+      res.redirect('mybets');
+    //res.coookie("userBets", collection.find({fullname: profile_name}, {currentBets: 1}));
+});
+});
+});
+*/
 
 // Start server
 app.listen(process.env.PORT || 3000);
