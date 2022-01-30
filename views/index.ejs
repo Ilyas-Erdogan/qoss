@@ -5,14 +5,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
 <body>
-<nav class="w3-bar w3-red">
-  <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
-  <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
-  <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
-  <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
-  <a href="/logout" class="w3-button w3-bar-item">Logout</a>
-  <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
-</nav>
+    <nav class="w3-bar w3-red">
+        <% if(locals.profile_name) { %>
+          <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+          <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+          <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+          <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+        <% } else{%>
+            <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+            <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+            <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+            <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+            <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+        <%} %>
+        </nav>
 
 <section>
   <img class="mySlides" src="/football.png" style="width:100%">
@@ -24,7 +30,7 @@
 <section class="w3-container w3-center w3-content" style="max-width:600px">
   <h2 class="w3-wide">Queen's Online Sports Services</h2>
   <p class="w3-opacity"><i>Guess Correctly, Win Prizes</p>
-  <p class="w3-justify">Welcome to the Queen's Online Sport Services, an online platform which allows fellow students to place bets on their favourite teams with a chance to win on-capmus prizes.</p>
+  <p class="w3-justify">Welcome to the Queen's Online Sport Services, an online platform which allows fellow students to place bets on their favourite teams with a chance to win on-campus prizes.</p>
 </section>
 
 <section class="w3-row-padding w3-center w3-light-blue">
@@ -41,7 +47,7 @@
     <p>Spend the rewards!</p>
     <img src="ClarkHall.png" alt="Part 2" style="width:80%">
     <p>Use your well deserved prizes at on-campus stores such as the Campus Bookstore!</p>
-Book  </article>
+</article>
 </section>
 
 <script>

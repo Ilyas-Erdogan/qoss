@@ -8,20 +8,25 @@
         <body>
         
         
-        <nav class="w3-bar w3-red">
-          <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
-          <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
-          <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
-          <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
-          <a href="/logout" class="w3-button w3-bar-item">Logout</a>
-          <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
-          
-        </nav>
+            <nav class="w3-bar w3-red">
+                <% if(locals.profile_name) { %>
+                  <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+                  <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+                  <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+                  <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+                <% } else{%>
+                    <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+                    <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+                    <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+                    <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+                    <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+                <%} %>
+            </nav>
     </head>
     <body>
-        <h1>Queen's Online Sports Services</h1>
+        <h1>Login to QOSS</h1>
         <div class="container form">
-            <div>Login</div>
+            <div>Existing member login:</div>
             <form action="/login-confirm" method="POST">
               <div class="entry">
                 <label for="email">Email Address</label>

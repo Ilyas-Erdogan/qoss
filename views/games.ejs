@@ -7,14 +7,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
 <body>
-<nav class="w3-bar w3-red">
-  <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
-  <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
-  <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
-  <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
-  <a href="/logout" class="w3-button w3-bar-item">Logout</a>
-  <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
-</nav>
+  <nav class="w3-bar w3-red">
+    <% if(locals.profile_name) { %>
+      <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+      <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+      <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+      <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+    <% } else{%>
+        <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+        <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+        <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+        <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+        <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+    <%} %>
+    </nav>
     <title>Current Games</title>
   </head>
   <body>
@@ -24,3 +30,52 @@
     <a href="">
 
   </body>
+
+  new shit
+  <!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<body>
+
+</style>
+<body>
+
+<h2>Queen's Sport Selection</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Sport</th>
+    <th>Home Team (Queen's)</th>
+    <th>Away Team</th>
+  </tr>
+  <tr>
+  
+    <td>Basketball</td>
+    <td><button type="button" onclick="alert('Placed bet on home team to win')">Place Bet</button></td>
+
+    <td><button type="button" onclick="alert('Placed bet on away team to win')">Place Bet</button></td>
+  </tr>
+  <tr>
+  
+    <td>Football</td>
+<td><button type="button" onclick="alert('Placed bet on home team to win')">Place Bet</button></td>
+
+    <td><button type="button" onclick="alert('Placed bet on away team to win')">Place Bet</button></td>
+  </tr>
+  <tr>
+  
+      <td>Soccer</td>
+    <td><button type="button" onclick="alert('Placed bet on home team to win')">Place Bet</button></td>
+
+    <td><button type="button" onclick="alert('Placed bet on away team to win')">Place Bet</button></td>
+  </tr>
+  <tr>
+  
+</table>
+
+
+</body>
+</html>

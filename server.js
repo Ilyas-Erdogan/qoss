@@ -21,15 +21,14 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/', (req, res) => {
   let profile_name = req.cookies.fullname;
+  let user_email = req.cookies.email;
 
-  return res.render("index.ejs", {
-    profile_name,
-  });
+  return res.render("index.ejs", { profile_name, user_email });
 });
 
 app.get('/games', (req, res) => {
   let profile_name = req.cookies.fullname;
-  res.render('games.ejs', { profile_name : profile_name});
+  res.render('games.ejs', { profile_name : profile_name,});
 });
 
 app.get('/signup', (req, res) => {
@@ -44,7 +43,8 @@ app.get('/login', (req, res) => {
 
 app.get('/myprofile', (req, res) => {
   let profile_name = req.cookies.fullname;
-  res.render('myprofile.ejs', { profile_name : profile_name});
+  let user_email = req.cookies.email;
+  res.render('myprofile.ejs', { profile_name : profile_name, user_email : user_email});
 });
 
 app.get('/logout', (req, res) => {
@@ -87,6 +87,7 @@ app.post('/signup-confirm', (req, res) => {
       .insertMany([
         { points: 100,
           email: req.body.email,
+          password: req.body.password,
           fullname: req.body.fullname
         }
       ])
