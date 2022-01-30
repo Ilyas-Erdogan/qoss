@@ -100,6 +100,4 @@ app.post('/signup-confirm', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+app.listen(process.env.PORT || 3000);
