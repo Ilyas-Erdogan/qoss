@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <body>
+        
+        
+        <nav class="w3-bar w3-red">
+          <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+          <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+          <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+          <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+          <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+        </nav>
+    </head>
+    <body>
+    <% if(locals.profile_name) { %>
+        <h1><%= profile_name%>'s Profile</h1>
+    <% } else{ %>
+        <p>You must be <a href="/login" method="GET">logged in!</a></p>
+    <% } %>
+    </body>

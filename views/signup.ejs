@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+      
+      <body>
+      <nav class="w3-bar w3-red">
+        <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+        <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+        <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+        <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+        <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+        <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+      </nav>
+    </head>
+    <body>
+        <h1>Betting App</h1>
+        <div class="container form">
+            <div>Sign-Up</div>
+            <form action="/signup-confirm" method="POST">
+              <div class="entry">
+                <label for="name">Full name</label>
+                <input type="text" placeholder="Full name" name="fullname" />
+              </div>
+              <div class="entry">
+                <label for="email">Email Address</label>
+                <input type="email" placeholder="E-mail address" name="email" />
+              </div>
+              <div class="entry">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" name="password" />
+              </div>
+              <button class="button button-block" type="submit">
+                Create Account
+              </button>
+            </form>
+          </div>
+
+        
+    </body>
+</html>
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+<body>
+<nav class="w3-bar w3-red">
+  <a href="/" method="GET" class="w3-button w3-bar-item">Home</a>
+  <a href="/games" method="GET" class="w3-button w3-bar-item">Games</a>
+  <a href="/signup" method="GET" class="w3-button w3-bar-item">Sign Up</a>
+  <a href="/login" method="GET" class="w3-button w3-bar-item">Login</a>
+  <a href="/logout" class="w3-button w3-bar-item">Logout</a>
+  <a href="/myprofile" method="GET" class="w3-button w3-bar-item">My Profile</a>
+</nav>
+
+<section>
+  <img class="mySlides" src="/football.png" style="width:100%">
+  <img class="mySlides" src="/basketball.png" style="width:100%">
+  <img class="mySlides" src="/soccer.png" style="width:100%">
+</section>
+
+
+<section class="w3-container w3-center w3-content" style="max-width:600px">
+  <h2 class="w3-wide">Queen's Online Sports Services</h2>
+  <p class="w3-opacity"><i>Guess Correctly, Win Prizes</p>
+  <p class="w3-justify">Welcome to the Queen's Online Sport Services, an online platform which allows fellow students to place bets on their favourite teams with a chance to win on-capmus prizes.</p>
+</section>
+
+<section class="w3-row-padding w3-center w3-light-blue">
+  <article class="w3-third">
+    <p>Place your bets on your team and try and guess the results</p>
+    <img src="raffle_tickets.jpeg" alt="Part 1" style="width:80%">
+    <p>You never know </p>  </article>
+  <article class="w3-third">
+    <p>The Results are Out!</p>
+    <img src="trophy.png" alt="Part 2" style="width:80%">
+    <p>Check your email for updates on prizes</p>
+  </article>
+  <article class="w3-third">
+    <p>Spend the rewards!</p>
+    <img src="ClarkHall.png" alt="Part 2" style="width:80%">
+    <p>Use your well deserved prizes at on-campus stores such as the Campus Bookstore!</p>
+Book  </article>
+</section>
+
+<script>
+    var myIndex = 0;
+    carousel();
+    
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 3000);
+    }
+</script>
+
+ <!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+  <a href="#"><i class="fa fa-facebook-official"></i></a>
+  <a href="#"><i class="fa fa-pinterest-p"></i></a>
+  <a href="#"><i class="fa fa-twitter"></i></a>
+  <a href="#"><i class="fa fa-flickr"></i></a>
+  <a href="#"><i class="fa fa-linkedin"></i></a>
+  </p>
+</footer>
+</body>
+
